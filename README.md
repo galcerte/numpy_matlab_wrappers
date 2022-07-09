@@ -1,31 +1,28 @@
-|--------------|-----------------------------|------------------------------------|
-|              | MATLAB                      | Python                             |
-|--------------|-----------------------------|------------------------------------|
-| Requirements | (Nothing)                   | import numpy as np                 |
-|              |                             | import scipy as sp                 |
-|------------- |-----------------------------|------------------------------------|
-| Functions    | cumsum(X)                   | np.cumsum(X, axis=0)               |
-|              | size(X)                     | X.shape                            |
-|              | zeros(size(toa))            | np.zeros(toa.shape)                |
-|              | zeros(size(toa)(1), ass)    | np.zeros((toa.shape[0], ass))      |
-|              | length(X)                   | np.max(X.shape)                    |
-|              | 1:N                         | np.arange(1., N + 1)               |
-|              | ones(3, 4)                  | np.ones((3, 4))                    |
-|              | round(X)                    | np.around(X)                       |
-|              | ceil(X)                     | np.ceil(X)                         |
-|              | floor(X)                    | np.floor(X)                        |
-|              | find(X)                     | np.nonzero(X)                      |
-|              | find(X <= 0)                | np.nonzero(X <= 0)                 |
-|              | randn(3, 4)                 | np.random.randn(3, 4)              |
-|              | randn(size(X))              | np.random.standard_normal(X.shape) |
-|              | erfinv(X)                   | sp.special.erfinv(X)               |
-|              | rem(a, b)                   | np.fmod(a, b)                      |
-|              | max(X)                      | X.max(0)                           |
-|              | max(X, Y)                   | np.maximum(X, Y)                   |
-|              | min(X)                      | X.min(0)                           |
-|              | min(X, Y)                   | np.minimum(X, Y)                   |
-|              | sort(X)                     | np.sort(X)                         |
-|--------------|-----------------------------|------------------------------------|
+|              | MATLAB                      | Python                               |
+|--------------|-----------------------------|--------------------------------------|
+| Requirements | (Nothing)                   | `import numpy as np`                 |
+|              |                             | `import scipy as sp`                 |
+| Functions    | `cumsum(X)`                 | `np.cumsum(X, axis=0)`               |
+|              | `size(X)`                   | `X.shape`                            |
+|              | `zeros(size(X))`            | `np.zeros(X.shape)`                  |
+|              | `zeros(size(X)(1), ass)`    | `np.zeros((X.shape[0], ass))`        |
+|              | `length(X)`                 | `np.max(X.shape)`                    |
+|              | `1:N`                       | `np.arange(1., N + 1)`               |
+|              | `ones(3, 4)`                | `np.ones((3, 4))`                    |
+|              | `round(X)`                  | `np.around(X)`                       |
+|              | `ceil(X)`                   | `np.ceil(X)`                         |
+|              | `floor(X)`                  | `np.floor(X)`                        | 
+|              | `find(X)`                   | `np.nonzero(X)`                      |
+|              | `find(X <= 0)`              | `np.nonzero(X <= 0)`                 |
+|              | `randn(3, 4)`               | `np.random.randn(3, 4)`              |
+|              | `randn(size(X))`            | `np.random.standard_normal(X.shape)` |
+|              | `erfinv(X)`                 | `sp.special.erfinv(X)`               |
+|              | `rem(a, b)`                 | `np.fmod(a, b)`                      |
+|              | `max(X)`                    | `X.max(0)`                           |
+|              | `max(X, Y)`                 | `np.maximum(X, Y)`                   |
+|              | `min(X)`                    | `X.min(0)`                           |
+|              | `min(X, Y)`                 | `np.minimum(X, Y)`                   |
+|              | `sort(X)`                   | `np.sort(X)`                         |
 
 With NumPy, as several functions and classes are often used from there at once,
 it is preferred to import the entire library as `import numpy as np`, but in
@@ -43,8 +40,7 @@ NumPy per axis, containing the position of each element that fits on that axis.
 array, but in NumPy an array, but in NumPy it returns the mean of all elements.
 This behavior also occurs in `cumsum()`, `cumprod()`, `sum()` and `any()`.
 
-`round()`, `floor()` and `ceil()` in MATLAB return `int` or `float`
-variables that are converted to `float` type in MATLAB. `float` variables that
-are converted to integers once they are evaluated. In NumPy, you need to a
-manual cast from float to int when using `np.round()`, `np.floor()`,
-`np.ceil()`.
+`round()`, `floor()` and `ceil()` in MATLAB return `int` or `float` variables
+that are converted to `float` type in MATLAB. `float` variables that are
+converted to integers once they are evaluated. In NumPy, you need to a manual
+cast from float to int when using `np.round()`, `np.floor()`, `np.ceil()`.
