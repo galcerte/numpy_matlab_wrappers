@@ -6,26 +6,8 @@ def any(array: np.ndarray):
     It is partial in the sense that additional parameters aside from the
     target array have not been considered.
 
-    The following is pulled from https://mathworks.com/help/matlab/ref/any.html
-
-    any(A) tests along the first array dimension of A whose size does not equal
-    1, and determines if any element is a nonzero number or logical 1 (true). In
-    practice, any() is a natural extension of the logical OR operator.
-
-    If A is a vector, then B = any(A) returns logical 1 (True in Python) if any
-    of the elements of A is a nonzero number (not implemented) or is logical 1
-    (True in Python), and returns logical 0 (False in Python) if all the
-    elements are zero.
-
-    If A is a nonempty, nonvector matrix, then any(A) treats the columns of
-    A as vectors, returning a row vector of logical 1s (True) and 0s (False).
-
-    If A is an empty 0-by-0 matrix, any(A) returns logical 0 (False) (not implemented).
-
-    If A is a multidimensional array, any(A) acts along the first array
-    dimension whose size does not equal 1 and returns an array of logical
-    values. The size of this dimension becomes 1, while the sizes of all other
-    dimensions remain the same.
+    More information about this function can be found in
+    https://mathworks.com/help/matlab/ref/any.html
 
     Parameters
     ----------
@@ -34,7 +16,7 @@ def any(array: np.ndarray):
 
     Returns
     -------
-    any : bool or ndarray
+    any : bool or ndarray of bools
         True if there is any element of the array which is True,
         False otherwise.
     '''
@@ -72,28 +54,17 @@ def cumsum(array: np.ndarray):
     It is partial in the sense that additional parameters aside from the
     target array have not been considered.
 
-    The following is pulled from https://mathworks.com/help/matlab/ref/cumsum.html
-    
-    cumsum(A) returns the cumulative sum of A starting at the beginning of the
-    first array dimension in A whose size does not equal 1.
-
-    If A is a vector, then cumsum(A) returns a vector containing the cumulative
-    sum of the elements of A.
-
-    If A is a matrix, then cumsum(A) returns a matrix containing the cumulative
-    sums for each column of A.
-
-    If A is a multidimensional array, then cumsum(A) acts along the first
-    nonsingleton dimension.
+    More information about this function can be found in
+    https://mathworks.com/help/matlab/ref/cumsum.html
 
     Parameters
     ----------
-    array : ndarray
+    array  : ndarray
         Array upon which we compute its cumulative sum
 
     Returns
     -------
-    cumsum  : ndarray
+    cumsum : ndarray
         Cumulative sum of the array along a certain axis
     '''
 
@@ -130,28 +101,17 @@ def cumprod(array: np.ndarray):
     It is partial in the sense that additional parameters aside from the
     target array have not been considered.
     
-    The following is pulled from https://mathworks.com/help/matlab/ref/cumprod.html
+    More information about this function can be found in
+    https://mathworks.com/help/matlab/ref/cumprod.html
     
-    cumprod(A) returns the cumulative product of A starting at the beginning of
-    the first array dimension in A whose size does not equal 1.
-
-    If A is a vector, then cumprod(A) returns a vector containing the cumulative
-    product of the elements of A.
-
-    If A is a matrix, then cumprod(A) returns a matrix containing the cumulative
-    products for each column of A.
-
-    If A is a multidimensional array, then cumprod(A) acts along the first
-    nonsingleton dimension.
-
     Parameters
     ----------
-    array : ndarray
+    array   : ndarray
         Array upon which we compute its cumulative product
 
     Returns
     -------
-    cumprod  : ndarray
+    cumprod : ndarray
         Cumulative product of the array along a certain axis
     '''
 
@@ -188,25 +148,9 @@ def diff(array: np.ndarray):
     It is partial in the sense that additional parameters aside from the
     target array have not been considered.
     
-    The following is pulled from https://mathworks.com/help/matlab/ref/diff.html
+    More information about this function can be found in
+    https://mathworks.com/help/matlab/ref/diff.html
     
-    diff(X) calculates differences between adjacent elements of X along the
-    first array dimension whose size does not equal 1:
-
-    If X is a vector of length m, then Y = diff(X) returns a vector of length
-    m-1. The elements of Y are the differences between adjacent elements of X.
-
-    Y = [X(2)-X(1) X(3)-X(2) ... X(m)-X(m-1)]
-
-    If X is a nonempty, nonvector p-by-m matrix, then Y = diff(X) returns a
-    matrix of size (p-1)-by-m, whose elements are the differences between the
-    rows of X.
-
-    Y = [X(2,:)-X(1,:); X(3,:)-X(2,:); ... X(p,:)-X(p-1,:)]
-
-    If X is a 0-by-0 empty matrix, then Y = diff(X) returns a 0-by-0 empty
-    matrix.
-
     Parameters
     ----------
     array : ndarray
@@ -258,20 +202,13 @@ def fliplr(array: np.ndarray):
     It is partial in the sense that additional parameters aside from the
     target array have not been considered.
 
-    The following is pulled from https://mathworks.com/help/matlab/ref/fliplr.html)
-
-    fliplr(A) returns A with its columns flipped in the left-right direction
-    (that is, about a vertical axis).
-
-    If A is a row vector, then fliplr(A) returns a vector of the same length with
-    the order of its elements reversed. If A is a column vector, then fliplr(A)
-    simply returns A. For multidimensional arrays, fliplr operates on the planes
-    formed by the first and second dimensions.
+    More information about this function can be found in
+    https://mathworks.com/help/matlab/ref/fliplr.html)
 
     Parameters
     ----------
-    array : ndarray
-        Array that will be flipped
+    array  : ndarray
+        Array to be flipped
 
     Returns
     -------
@@ -306,21 +243,9 @@ def mean(array: np.ndarray):
     It is partial in the sense that additional parameters aside from the
     target array have not been considered.
 
-    The following is pulled from https://mathworks.com/help/matlab/ref/mean.html
+    More information about this function can be found in
+    https://mathworks.com/help/matlab/ref/mean.html
 
-    mean(A) returns the mean of the elements of A along the first array
-    dimension whose size does not equal 1.
-
-    If A is a vector, then mean(A) returns the mean of the elements.
-
-    If A is a matrix, then mean(A) returns a row vector containing the mean of
-    each column.
-
-    If A is a multidimensional array, then mean(A) operates along the first
-    array dimension whose size does not equal 1, treating the elements as
-    vectors. This size of this dimension becomes 1 while the sizes of all other
-    dimensions remain the same as A. 
-    
     Parameters
     ----------
     array : ndarray
@@ -328,7 +253,7 @@ def mean(array: np.ndarray):
 
     Returns
     -------
-    mean  : float64 or ndarray
+    mean  : float or ndarray
         Mean of the array along a certain axis
     '''
 
@@ -365,20 +290,8 @@ def sum(array: np.ndarray):
     It is partial in the sense that additional parameters aside from the
     target array have not been considered.
 
-    The following is pulled from https://mathworks.com/help/matlab/ref/sum.html
-
-    sum(A) returns the sum of the elements of A along the first array dimension
-    whose size does not equal 1.
-
-    If A is a vector, then sum(A) returns the sum of the elements.
-
-    If A is a matrix, then sum(A) returns a row vector containing the sum of
-    each column.
-
-    If A is a multidimensional array, then sum(A) operates along the first array
-    dimension whose size does not equal 1, treating the elements as vectors.
-    This dimension becomes 1 while the sizes of all other dimensions remain the
-    same.
+    More information about this function can be found in
+    https://mathworks.com/help/matlab/ref/sum.html
 
     Parameters
     ----------
@@ -387,7 +300,7 @@ def sum(array: np.ndarray):
 
     Returns
     -------
-    sum  : float64 o ndarray
+    sum  : float or ndarray
         Sum of the array along a certain axis
     '''
 
