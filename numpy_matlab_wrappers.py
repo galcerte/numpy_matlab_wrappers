@@ -25,17 +25,10 @@ def any(array: np.ndarray):
     if not isinstance(array, np.ndarray):
         raise TypeError('array variable is not of type ndarray.')
 
-    # If it's a vector, we merely return True if any of its elements are True.
-    # A vector may have one or two dimensions in NumPy; we also check that the
-    # shape, if it has two elements, has one of them equal to 1, before
-    # treating it like a vector as in MATLAB.
+    # If it's a vector, we merely return True if any of its elements are True
     if (len(array.shape) == 1) or ((len(array.shape) == 2) and ((array.shape[0] == 1) or (array.shape[1] == 1))):
         any = np.any(array)
     # If it is a 2-dimensional array, we check for True values over columns
-    # As NumPy can spit out an array which is a row (so technically has
-    # two dimensions) we also have to check whether or not the shape
-    # of any of those two dimensions is equal to 1, given that in this case,
-    # MATLAB treats them as in the previous case.
     elif (len(array.shape) == 2) and ((array.shape[0] != 1) and (array.shape[1] != 1)):
         any = np.any(array, axis=1)
     # If it is an n-dimensional array with n > 2, we check for True
@@ -73,16 +66,9 @@ def cumsum(array: np.ndarray):
         raise TypeError('array variable is not of type ndarray.')
     
     # If it's a vector, we merely calculate the cumulative sum over all of its elements
-    # A vector may have one or two dimensions in NumPy; we also check that the
-    # shape, if it has two elements, has one of them equal to 1, before
-    # treating it like a vector as in MATLAB
     if (len(array.shape) == 1) or ((len(array.shape) == 2) and ((array.shape[0] == 1) or (array.shape[1] == 1))):
         cumsum = np.cumsum(array)
-    # If it's an array with two axis, we do the cumulative sum over its columns.
-    # As NumPy can spit out an array which is a row (so technically has
-    # two dimensions) we also have to check whether or not the shape
-    # of any of those two dimensions is equal to 1, given that in this case,
-    # MATLAB treats them as in the previous case
+    # If it's an array with two axis, we do the cumulative sum over its columns
     elif (len(array.shape) == 2) and ((array.shape[0] != 1) and (array.shape[1] != 1)):
         cumsum = np.cumsum(array, axis=0)
     # If it's a matrix with n axis, where n > 2, we do the cumulative sum
@@ -120,16 +106,10 @@ def cumprod(array: np.ndarray):
         raise TypeError('array variable is not of type ndarray.')
     
     # If it's a vector, we merely calculate the cumulative product over all of
-    # its elements. A vector may have one or two dimensions in NumPy; we also
-    # check that the shape, if it has two elements, has one of them equal to 1,
-    # before treating it like a vector as in MATLAB
+    # its elements
     if (len(array.shape) == 1) or ((len(array.shape) == 2) and ((array.shape[0] == 1) or (array.shape[1] == 1))):
         cumprod = np.cumprod(array)
-    # If it's a matrix, we calculate the cumulative product over its columns.
-    # As NumPy can spit out an array which is a row (so technically has
-    # two dimensions) we also have to check whether or not the shape
-    # of any of those two dimensions is equal to 1, given that in this case,
-    # MATLAB treats them as in the previous case
+    # If it's a matrix, we calculate the cumulative product over its columns
     elif (len(array.shape) == 2) and ((array.shape[0] != 1) and (array.shape[1] != 1)):
         cumprod = np.cumprod(array, axis=0)
     # If it's a matrix with n > 2 dimensions, we do the cumulative product
@@ -179,11 +159,7 @@ def diff(array: np.ndarray):
             diff = np.diff(array)
         elif array.shape[1] == 1:
             diff = np.diff(array, axis=0)
-    # If it's a matrix, we calculate the difference between its rows.
-    # As NumPy can spit out an array which is a row (so technically has
-    # two dimensions) we also have to check whether or not the shape
-    # of any of those two dimensions is equal to 1, given that in this case,
-    # MATLAB treats them as in the previous case
+    # If it's a matrix, we calculate the difference between its rows
     elif (len(array.shape) == 2) and (array.shape[0] != 1) and (array.shape[1] != 1):
         diff = np.diff(array, axis=0)
     # If it's an array with n > 2 axis, we do the difference over
@@ -262,16 +238,9 @@ def mean(array: np.ndarray):
         raise TypeError('array variable is not of type ndarray.')
     
     # If it's a vector, we merely calculate the mean over all of its elements
-    # A vector may have one or two dimensions in NumPy; we also check that the
-    # shape, if it has two elements, has one of them equal to 1, before
-    # treating it like a vector as in MATLAB
     if (len(array.shape) == 1) or ((len(array.shape) == 2) and ((array.shape[0] == 1) or (array.shape[1] == 1))):
         mean = np.mean(array)
     # If it's a two dimensional array, we calculate the mean over the columns.
-    # As NumPy can spit out an array which is a row (so technically has
-    # two dimensions) we also have to check whether or not the shape
-    # of any of those two dimensions is equal to 1, given that in this case,
-    # MATLAB treats them as in the previous case.
     elif (len(array.shape) == 2) and ((array.shape[0] != 1) and (array.shape[1] != 1)):
         mean = np.mean(array, axis=1)
     # If it's a matrix with more than n axis, we calculate the mean over
@@ -308,17 +277,10 @@ def sum(array: np.ndarray):
     if not isinstance(array, np.ndarray):
         raise TypeError('array variable is not of type ndarray.')
     
-    # If it's a vector, we merely calculate the sum over all of its elements. A
-    # vector may have one or two dimensions in NumPy; we also check that the
-    # shape, if it has two elements, has one of them equal to 1, before treating
-    # it like a vector as in MATLAB.
+    # If it's a vector, we merely calculate the sum over all of its elements
     if (len(array.shape) == 1) or ((len(array.shape) == 2) and ((array.shape[0] == 1) or (array.shape[1] == 1))):
         sum = np.sum(array)
     # If it's a matrix, we calculate the mean over its columns
-    # As NumPy can spit out an array which is a row (so technically has
-    # two dimensions) we also have to check whether or not the shape
-    # of any of those two dimensions is equal to 1, given that in this case,
-    # MATLAB treats them as in the previous case.
     elif (len(array.shape) == 2) and ((array.shape[0] != 1) and (array.shape[1] != 1)):
         sum = np.sum(array, axis=1)
     # If it's an array with n axis where n > 2, we calculate the mean
