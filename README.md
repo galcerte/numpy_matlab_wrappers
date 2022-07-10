@@ -63,22 +63,23 @@ you find stuff you might've found in the NumPy documentation, that's because it'
 
 With NumPy, as several functions and classes are often used from there at once,
 it is preferred to import the entire library as `import numpy as np`, but in
-SciPy, what is used are functions of specific modules, it is preferred to
+SciPy, what is used are functions of specific modules, so it is preferred to
 import the functions individually, for example: `from scipy.special import erfinv`.
 
 Although there are many functions which are more or less equivalent, there are
-considerable differences. `find()` in MATLAB, for example, returns indexes of a
+considerable differences. `find()` in MATLAB, for example, returns indices of a
 flattened array, while the NumPy equivalent returns a tuple with an array of
 NumPy per axis, containing the position of each element that fits on that axis.
 
 `mean()` in MATLAB, by default, returns the averages of the column vectors of an
-array, but in NumPy an array, but in NumPy it returns the mean of all elements.
-This behavior also occurs in `cumsum()`, `cumprod()`, `sum()` and `any()`.
+array (if it's two-dimensional), but in NumPy it returns the mean of all
+elements. This behavior also occurs in `cumsum()`, `cumprod()`, `sum()` and `any()`.
+Most of these functions are imitated in the module.
 
-`round()`, `floor()` and `ceil()` in MATLAB return `int` or `float` variables
-that are converted to `float` type in MATLAB. `float` variables that are
-converted to integers once they are evaluated. In NumPy, you need to a manual
-cast from float to int when using `np.round()`, `np.floor()`, `np.ceil()`.
+In MATLAB, the output from functions like `round()`, `floor()` and `ceil()` is
+seemingly usable as indices in arrays straight away, however in NumPy, what is
+returned is almost always a float, so a manual cast from `np.float64` to
+`np.int32` or similar is needed when using `np.round()` and others.
 
 ## Is it NumPy-to-MATLAB or MATLAB-to-NumPy?
 At the time of naming this module I had to work, so I didn't have much time
