@@ -38,30 +38,30 @@ that are relevant to my job, not sure if I'll add many which are not. If in the
 table below you find stuff you might've found in the NumPy documentation,
 that's because it's from there. 
 
-|              | MATLAB                      | Python                                       |
-|--------------|-----------------------------|----------------------------------------------|
-| Requirements | (Nothing)                   | `import numpy as np` \ `import scipy as sp`  |
-| Functions    | `cumsum(X)`                 | `np.cumsum(X, axis=0)`                       |
-|              | `size(X)`                   | `X.shape`                                    |
-|              | `zeros(size(X))`            | `np.zeros(X.shape)`                          |
-|              | `zeros(size(X)(1), ass)`    | `np.zeros((X.shape[0], ass))`                |
-|              | `length(X)`                 | `np.max(X.shape)`                            |
-|              | `1:N`                       | `np.arange(1., N + 1)`                       |
-|              | `ones(3, 4)`                | `np.ones((3, 4))`                            |
-|              | `round(X)`                  | `np.around(X)`                               |
-|              | `ceil(X)`                   | `np.ceil(X)`                                 |
-|              | `floor(X)`                  | `np.floor(X)`                                | 
-|              | `find(X)`                   | `np.nonzero(X)`                              |
-|              | `find(X <= 0)`              | `np.nonzero(X <= 0)`                         |
-|              | `randn(3, 4)`               | `np.random.randn(3, 4)`                      |
-|              | `randn(size(X))`            | `np.random.standard_normal(X.shape)`         |
-|              | `erfinv(X)`                 | `sp.special.erfinv(X)`                       |
-|              | `rem(a, b)`                 | `np.fmod(a, b)`                              |
-|              | `max(X)`                    | `X.max(0)`                                   |
-|              | `max(X, Y)`                 | `np.maximum(X, Y)`                           |
-|              | `min(X)`                    | `X.min(0)`                                   |
-|              | `min(X, Y)`                 | `np.minimum(X, Y)`                           |
-|              | `sort(X)`                   | `np.sort(X)`                                 |
+|              | MATLAB                      | Python                                        |
+|--------------|-----------------------------|-----------------------------------------------|
+| Requirements | (Nothing)                   | `import numpy as np` and `import scipy as sp` |
+| Functions    | `cumsum(X)`                 | `np.cumsum(X, axis=0)`                        |
+|              | `size(X)`                   | `X.shape`                                     |
+|              | `zeros(size(X))`            | `np.zeros(X.shape)`                           |
+|              | `zeros(size(X)(1), ass)`    | `np.zeros((X.shape[0], ass))`                 |
+|              | `length(X)`                 | `np.max(X.shape)`                             |
+|              | `1:N`                       | `np.arange(1., N + 1)`                        |
+|              | `ones(3, 4)`                | `np.ones((3, 4))`                             |
+|              | `round(X)`                  | `np.around(X)`                                |
+|              | `ceil(X)`                   | `np.ceil(X)`                                  |
+|              | `floor(X)`                  | `np.floor(X)`                                 | 
+|              | `find(X)`                   | `np.nonzero(X)`                               |
+|              | `find(X <= 0)`              | `np.nonzero(X <= 0)`                          |
+|              | `randn(3, 4)`               | `np.random.randn(3, 4)`                       |
+|              | `randn(size(X))`            | `np.random.standard_normal(X.shape)`          |
+|              | `erfinv(X)`                 | `sp.special.erfinv(X)`                        |
+|              | `rem(a, b)`                 | `np.fmod(a, b)`                               |
+|              | `max(X)`                    | `X.max(0)`                                    |
+|              | `max(X, Y)`                 | `np.maximum(X, Y)`                            |
+|              | `min(X)`                    | `X.min(0)`                                    |
+|              | `min(X, Y)`                 | `np.minimum(X, Y)`                            |
+|              | `sort(X)`                   | `np.sort(X)`                                  |
 
 With NumPy, as several functions and classes are often used from there at once,
 it is preferred to import the entire library as `import numpy as np`, but in
