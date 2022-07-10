@@ -1,4 +1,13 @@
 # NumPy-MATLAB Wrappers
+This repo holds two files meant to be used in conjunction:
+
+- `numpy_matlab_wrappers.py`, a module meant to reproduce the behaviour of
+  various MATLAB functions in Python using NumPy.
+
+- This `README.md`, which holds a table containing comparisons between
+  other MATLAB functions which I deemed not worth imitating, given how
+  little Python code they need. 
+
 ## Why?
 On my day job, I'm working on translating a MATLAB codebase to Python and NumPy.
 The way that MATLAB handles vectors makes it a bit hard to tell what dimension
