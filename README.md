@@ -63,30 +63,43 @@ that's because it's from there.
 |              | `min(X, Y)`                 | `np.minimum(X, Y)`                            |
 |              | `sort(X)`                   | `np.sort(X)`                                  |
 
-With NumPy, as several functions and classes are often used from there at once,
-it is preferred to import the entire library as `import numpy as np`, but in
-SciPy, what is used are functions of specific modules, so it is preferred to
-import the functions individually, for example: `from scipy.special import erfinv`.
+- Most, if not all functions in MATLAB which act on arrays and which *could*
+  return arrays, (like `mean()`, `cumsum()`, `cumprod()`, `sum()`, `any()`
+  among others), by default, return the result of the computation over the
+  column vectors of an array (if it's two-dimensional), but in NumPy it returns
+  the computation done over all elements. These sorts of functions are the ones
+  which are implemented the most in this module.
 
-Although there are many functions which are more or less equivalent, there are
-considerable differences. `find()` in MATLAB, for example, returns indices of a
-flattened array, while the NumPy equivalent returns a tuple with an array of
-NumPy per axis, containing the position of each element that fits on that axis.
+  So a vector may have one or two dimensions in NumPy, actually; we need to check
+  for that. The way we do that is checking whether or not we have one dimension.
+  If we do, it's a vector. If we have two, then we also need to check if one of
+  those dimensions has size 1, in that case, it should also be treated as a
+  vector. These if statements currently make up most of the functions in this
+  module, actually.
 
-`mean()` in MATLAB, by default, returns the averages of the column vectors of an
-array (if it's two-dimensional), but in NumPy it returns the mean of all
-elements. This behavior also occurs in `cumsum()`, `cumprod()`, `sum()` and `any()`.
-Most of these functions are imitated in the module.
+  If we have two dimensional arrays and none of these have a size equal to 1,
+  then we do make the selected calculation over the columns, as MATLAB would.
 
-In MATLAB, the output from functions like `round()`, `floor()` and `ceil()` is
-seemingly usable as indices in arrays straight away, however in NumPy, what is
-returned is almost always a float, so a manual cast from `np.float64` to
-`np.int32` or similar is needed when using `np.round()` and others.
+- With NumPy, as several functions and classes are often used from there at once,
+  it is preferred to import the entire library as `import numpy as np`, but in
+  SciPy, what is used are functions of specific modules, so it is preferred to
+  import the functions individually, for example: `from scipy.special import erfinv`.
+
+- Although there are many functions which are more or less equivalent, there are
+  considerable differences. `find()` in MATLAB, for example, returns indices of a
+  flattened array, while the NumPy equivalent returns a tuple with an array of
+  NumPy per axis, containing the position of each element that fits on that axis.
+
+- In MATLAB, the output from functions like `round()`, `floor()` and `ceil()` is
+  seemingly usable as indices in arrays straight away, however in NumPy, what is
+  returned is almost always a float, so a manual cast from `np.float64` to
+  `np.int32` or similar is needed when using `np.round()` and others.
 
 ## Is it NumPy-to-MATLAB or MATLAB-to-NumPy?
 At the time of naming this module I had to work, so I didn't have much time
-to think of a name. I purposefully left out the "to" such that the name would
-not imply any directionality.
+to think of a name. Now that I think this through, it's probably the latter.
+I purposefully left out the "to" such that the name would not imply any
+directionality.
 
 ## Legal
 Code I've written myself is licensed under BSD-3-Clause. This module
