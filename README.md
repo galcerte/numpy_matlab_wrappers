@@ -24,8 +24,7 @@ NumPy.
 Not all functions behave wildly differently on NumPy/SciPy wrt MATLAB. Some are
 completely equivalent. This repo also contains comparisons that are relevant
 to my job, not sure if I'll add many which are not. If in the table below
-you find stuff you might've found in the NumPy documentation, that's because
-it's from there. 
+you find stuff you might've found in the NumPy documentation, that's because it's from there. 
 
 |              | MATLAB                      | Python                               |
 |--------------|-----------------------------|--------------------------------------|
@@ -55,10 +54,8 @@ it's from there.
 
 With NumPy, as several functions and classes are often used from there at once,
 it is preferred to import the entire library as `import numpy as np`, but in
-SciPy, as what is used are functions of specific SciPy, as what is used are
-functions of specific modules, it is preferred to import the functions
-individually, e.g. from functions are imported individually, for example:
-`from scipy.special import erfinv`.
+SciPy, what is used are functions of specific modules, it is preferred to
+import the functions individually, for example: `from scipy.special import erfinv`.
 
 Although there are many functions which are more or less equivalent, there are
 considerable differences. `find()` in MATLAB, for example, returns indexes of a
