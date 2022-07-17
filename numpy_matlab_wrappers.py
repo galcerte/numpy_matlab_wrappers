@@ -39,7 +39,7 @@ def any(array: np.ndarray):
         any = any.reshape(array.shape)
     # If it is a two-dimensional array with no axis with size 1, we check for
     # True values over columns
-    elif (len(array.shape) == 2) and ((array.shape[0] != 1) and (array.shape[1] != 1)):
+    elif (len(array.shape) == 2) and (1 not in array.shape):
         any = np.any(array, axis=1)
     # If it is an n-dimensional array with n > 2, we check for True
     # values in the first axis we find that has size > 1
@@ -89,7 +89,7 @@ def cumsum(array: np.ndarray):
         cumsum = cumsum.reshape(array.shape)
     # If it is a two-dimensional array with no axis with size 1, we do the
     # cumulative sum over its columns
-    elif (len(array.shape) == 2) and ((array.shape[0] != 1) and (array.shape[1] != 1)):
+    elif (len(array.shape) == 2) and (1 not in array.shape):
         cumsum = np.cumsum(array, axis=0)
     # If it's a matrix with n axis, where n > 2, we do the cumulative sum
     # over the first axis we find that contains more than one element
@@ -133,7 +133,7 @@ def cumprod(array: np.ndarray):
         cumprod = np.cumprod(array)
         cumprod = cumprod.reshape(array.shape)
     # If it's a matrix, we calculate the cumulative product over its columns
-    elif (len(array.shape) == 2) and ((array.shape[0] != 1) and (array.shape[1] != 1)):
+    elif (len(array.shape) == 2) and (1 not in array.shape):
         cumprod = np.cumprod(array, axis=0)
     # If it's a matrix with n > 2 dimensions, we do the cumulative product
     # over the first axis we find which contains more than one element
@@ -282,7 +282,7 @@ def mean(array: np.ndarray):
         mean = mean.reshape(array.shape)
     # If it's a two dimensional array with no axis with size equal to 1, we
     # calculate the mean over the columns
-    elif (len(array.shape) == 2) and ((array.shape[0] != 1) and (array.shape[1] != 1)):
+    elif (len(array.shape) == 2) and (1 not in array.shape):
         mean = np.mean(array, axis=1)
     # If it's a matrix with more than n axis, we calculate the mean over
     # the first axis we find containing more than one element
@@ -329,7 +329,7 @@ def sum(array: np.ndarray):
         sum = sum.reshape(array.shape)
     # If it's a two-dimensional array with no size of any axis equal to 1, we
     # calculate the mean over its columns
-    elif (len(array.shape) == 2) and ((array.shape[0] != 1) and (array.shape[1] != 1)):
+    elif (len(array.shape) == 2) and (1 not in array.shape):
         sum = np.sum(array, axis=1)
     # If it's an array with n axis where n > 2, we calculate the mean
     # over the first axis we find that contains more than one element
