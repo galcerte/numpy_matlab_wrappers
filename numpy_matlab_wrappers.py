@@ -75,8 +75,7 @@ def cumsum(array: np.ndarray):
     if not isinstance(array, np.ndarray):
         raise TypeError('array parameter is not of type ndarray.')
     
-    # If we have a one-dimensional array, we merely return True if any of its
-    # elements are True
+    # If we have a one-dimensional array, we merely do the cumulative sum
     if len(array.shape) == 1:
         cumsum = np.cumsum(array)
     # If we have a two-dimensional array which has a size of 1 in either axis,
@@ -129,6 +128,7 @@ def cumprod(array: np.ndarray):
     # its elements
     if len(array.shape) == 1:
         cumprod = np.cumprod(array)
+    # Preserving the original shape if array is two-dimensional
     elif (len(array.shape) == 2) and (1 in array.shape):
         cumprod = np.cumprod(array)
         cumprod = cumprod.reshape(array.shape)
