@@ -29,11 +29,7 @@ def any(array: np.ndarray):
     # elements are True
     if len(array.shape) == 1:
         any = np.any(array)
-    # If we have a two-dimensional array which has a size of 1 in either axis,
-    # we consider that as an equivalent of a MATLAB vector so we reshape the
-    # resulting array such that we preserve the shape of the original.
-    # This is because NumPy functions get rid of the axis that is equal to 1 in
-    # the output
+    # Preserving input array shape
     elif len(array.shape) == 2 and (1 in array.shape):
         any = np.any(array)
         any = any.reshape(array.shape)
@@ -78,11 +74,7 @@ def cumsum(array: np.ndarray):
     # If we have a one-dimensional array, we merely do the cumulative sum
     if len(array.shape) == 1:
         cumsum = np.cumsum(array)
-    # If we have a two-dimensional array which has a size of 1 in either axis,
-    # we consider that as an equivalent of a MATLAB vector so we reshape the
-    # resulting array such that we preserve the shape of the original.
-    # This is because NumPy functions get rid of the axis that is equal to 1 in
-    # the output
+    # Preserving input array shape
     elif (len(array.shape) == 2) and (1 in array.shape):
         cumsum = np.cumsum(array)
         cumsum = cumsum.reshape(array.shape)
@@ -128,7 +120,7 @@ def cumprod(array: np.ndarray):
     # its elements
     if len(array.shape) == 1:
         cumprod = np.cumprod(array)
-    # Preserving the original shape if array is two-dimensional
+    # Preserving input array shape
     elif (len(array.shape) == 2) and (1 in array.shape):
         cumprod = np.cumprod(array)
         cumprod = cumprod.reshape(array.shape)
@@ -274,9 +266,7 @@ def mean(array: np.ndarray):
     # its elements
     if len(array.shape) == 1:
         mean = np.mean(array)
-    # If it's a two-dimensional array with size of any axis equal to 1, we're
-    # dealing with the equivalent of a row or column vector, so we reshape the
-    # resulting array such that we preserve the shape of the original
+    # Preserving input array shape
     if (len(array.shape) == 2) and ((array.shape[0] == 1) or (array.shape[1] == 1)):
         mean = np.mean(array)
         mean = mean.reshape(array.shape)
@@ -321,9 +311,7 @@ def sum(array: np.ndarray):
     # If it's a one-dimensional, we merely calculate the sum over all of its elements
     if len(array.shape) == 1:
         sum = np.sum(array)
-    # If it's a two-dimensional array with size of any axis equal to 1, we're
-    # dealing with the equivalent of a row or column vector, so we reshape the
-    # resulting array such that we preserve the shape of the original
+    # Preserving input array shape
     elif (len(array.shape) == 2) and ((array.shape[0] == 1) or (array.shape[1] == 1)):
         sum = np.sum(array)
         sum = sum.reshape(array.shape)
